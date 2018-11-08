@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "d8fcc5f7-68d2-411e-bc5a-c9a266a91ff6",
+		"name": "Health Mate Smoke Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post - Push Heart Rate Data",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "b7adc934-4a00-4e32-98eb-8ee154ab4167",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"imei\": \"123456789012345\",\n\t\"timeBegin\": \"2018-11-06 12:00:00.00001\",\n\t\"heartRate\": 81,\n\t\"thresholdHeartRateH\": 240,\n\t\"thresholdHeartRateL\": 40\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/pushdata/heartrate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pushdata",
+						"heartrate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get - Get Heart Rates by IMEI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/pushdata/heartrate/123456789012345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pushdata",
+						"heartrate",
+						"123456789012345"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
